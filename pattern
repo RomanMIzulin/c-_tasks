@@ -1,0 +1,27 @@
+from __future__ import annotations
+from abc import ABC, abstractmethod
+import random
+class Car(ABC) -> None:
+    bool ignition 
+    @abstractmethod
+    def set_ignition():
+        pass
+
+class SportCar(Car):
+    def set_ignition(self,ign):
+        self.ignition=ign
+        print('Ignition changed by button (because it is sportcar)')
+
+class zhiga(Car):
+    def set_ignition(self,ign):
+        self.ignition=random.random(0,2)
+        print('maybe it works')
+
+class CarCreator(ABC):
+    @abstractmethod
+    def create_car()->None:
+        pass
+
+class CreatorOfSportCars(CarCreator):
+    def create_car(self)->SportCar:
+        return  SportCar()
